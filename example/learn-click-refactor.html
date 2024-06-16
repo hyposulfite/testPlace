@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>react mode</title>
+</head>
+
+<body>
+    <!-- 添加依赖 -->
+    <!-- 包含react 所必须的核心代码 -->
+    <!-- 生产坏境的包 -->
+    <!-- <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script> -->
+    <!-- react 渲染在不同平台所需要的核心代码 -->
+    <!-- <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> -->
+    <!-- Babel 将jsx 转换诚react代码的工具 -->
+    <!-- 前端使用过最多的工具 -->
+    <!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+    
+    <script  src="./lib/react.js"></script>
+    <!-- react 渲染在不同平台所需要的核心代码 -->
+    <script  src="./lib/react-dom.js"></script>
+    <!-- Babel 将jsx 转换诚react代码的工具 -->
+    <!-- 前端使用过最多的工具 -->
+    <script src="./lib/babel.js"></script>
+
+    <script type="text/babel">
+        //  React.render(<h2>hello world</h2>, document.getElementById('root'))
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        
+
+        // 使用组件进行重构代码
+        // 类组件
+        // 从父组件向子组件传递数据
+        // 从子组件向父组件传递数据
+        // 组件名称必须大写，小写会被识别成html标签
+        class App extends React.Component {
+            // 组件数据
+            /**
+             * 数据被分为两种数据
+             * 1、 参与界面更新的数据
+             *      参与数据流，定义在当前对象的state中
+             * 2. 不参与界面更新的数据
+             * */ 
+
+            constructor() {
+                // 继承 必须条用 super() 调用父类构造函数
+                super();
+                //  大部分存放数据的地方
+                this.state = {
+                    message: "hello world"
+                };
+            }
+            // 数组方法
+            handleClick = () => {
+                this.setState({
+                    message: "hello react"
+                });
+            };
+            // 渲染内容 render 函数
+            render() {
+                return (
+                    <div>
+                        <h1>{this.state.message}</h1>
+                        <button onClick={this.handleClick}>按钮</button>
+                    </div>
+                );
+            }
+        }
+        // 函数组件
+    </script>
+</body>
+
+</html>
